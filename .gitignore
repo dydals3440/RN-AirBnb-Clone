@@ -39,4 +39,9 @@ yarn-error.*
 
 expo-env.d.ts
 # @end expo-cli
+
+# Ignore .env file
+.env
+
+# Ignore package-lock.json file
 package-lock.json
