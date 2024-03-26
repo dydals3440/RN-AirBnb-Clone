@@ -39,8 +39,9 @@ const Page = () => {
 
     try {
       const { createdSessionId, setActive } = await selectedAuth();
-
+      console.log(createdSessionId);
       if (createdSessionId) {
+        console.log(createdSessionId);
         setActive!({ session: createdSessionId });
         router.back();
       }

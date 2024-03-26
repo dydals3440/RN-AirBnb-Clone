@@ -32,7 +32,8 @@
     "react-native-screens": "~3.29.0",
     "react-native-web": "~0.19.6",
     "expo-application": "~5.8.3",
-    "expo-auth-session": "~5.4.0"
+    "expo-auth-session": "~5.4.0",
+    "expo-haptics": "~12.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
