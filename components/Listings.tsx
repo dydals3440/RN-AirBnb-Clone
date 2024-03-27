@@ -33,7 +33,7 @@ const Listings = ({ listings: items, category }: Props) => {
 
   const renderRow: ListRenderItem<any> = ({ item }) => (
     // expoRouter를 사용할때 Link안에 태그를 넣을떄 asChild를 써주어야 렌더링됨.
-    <Link href={`/listings/${item.id}`} asChild>
+    <Link href={`/listing/${item.id}`} asChild>
       <TouchableOpacity>
         <Animated.View
           style={styles.listing}
