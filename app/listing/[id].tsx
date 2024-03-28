@@ -43,13 +43,26 @@ const Page = () => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
+      headerBackground: () => (
+        <Animated.View style={[headerAnimatedStyle, styles.header]} />
+      ),
       headerRight: () => (
         <View style={styles.bar}>
           <TouchableOpacity style={styles.roundButton} onPress={shareListing}>
             <Ionicons name='share-outline' size={22} color={'#000'} />
           </TouchableOpacity>
+          <TouchableOpacity style={styles.roundButton} onPress={shareListing}>
+            <Ionicons name='heart-outline' size={22} color={'#000'} />
+          </TouchableOpacity>
         </View>
       ),
+      headerLeft: () => {
+        return (
+          <TouchableOpacity style={styles.roundButton}>
+            <Ionicons name='chevron-back' size={22} color={'#000'} />
+          </TouchableOpacity>
+        );
+      },
     });
   }, []);
 
@@ -73,6 +86,12 @@ const Page = () => {
           ),
         },
       ],
+    };
+  });
+
+  const headerAnimatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: interpolate(scrollOffset.value, [0, IMG_HEIGHT / 1.5], [0, 1]),
     };
   });
 
@@ -231,6 +250,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     color: Colors.primary,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: Colors.grey,
+  },
+  header: {
+    backgroundColor: '#fff',
+    height: 100,
+    borderBottomColor: Colors.grey,
+    borderWidth: StyleSheet.hairlineWidth,
   },
 });
 
