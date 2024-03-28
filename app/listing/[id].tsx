@@ -5,6 +5,7 @@ import {
   Dimensions,
   Image,
   TouchableOpacity,
+  Share,
 } from 'react-native';
 
 import { useLocalSearchParams, useNavigation } from 'expo-router';
@@ -29,22 +30,30 @@ const Page = () => {
   const listing = (listingsData as any[]).find((item) => item.id === id);
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
   const navigation = useNavigation();
-  const shareListing = async () => {};
+  const shareListing = async () => {
+    try {
+      await Share.share({
+        title: listing.name,
+        url: listing.listing_url,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
         <View style={styles.bar}>
-          <TouchableOpacity
-            style={styles.roundButton}
-            onPress={shareListing}
-          ></TouchableOpacity>
+          <TouchableOpacity style={styles.roundButton} onPress={shareListing}>
+            <Ionicons name='share-outline' size={22} color={'#000'} />
+          </TouchableOpacity>
         </View>
       ),
     });
   }, []);
 
-  // 2:20분 강좌.
+  // 2:20 Time
   const scrollOffset = useScrollViewOffset(scrollRef);
   const imageAnimatedStyle = useAnimatedStyle(() => {
     return {
