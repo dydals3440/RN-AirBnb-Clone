@@ -8,7 +8,7 @@ import {
   Share,
 } from 'react-native';
 
-import { useLocalSearchParams, useNavigation } from 'expo-router';
+import { router, useLocalSearchParams, useNavigation } from 'expo-router';
 import listingsData from '@/assets/data/airbnb-listings.json';
 import Animated, {
   SlideInDown,
@@ -59,7 +59,12 @@ const Page = () => {
       headerLeft: () => {
         return (
           <TouchableOpacity style={styles.roundButton}>
-            <Ionicons name='chevron-back' size={22} color={'#000'} />
+            <Ionicons
+              name='chevron-back'
+              size={22}
+              color={'#000'}
+              onPress={() => router.back()}
+            />
           </TouchableOpacity>
         );
       },
