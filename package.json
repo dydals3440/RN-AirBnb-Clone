@@ -34,7 +34,8 @@
     "expo-application": "~5.8.3",
     "expo-auth-session": "~5.4.0",
     "expo-haptics": "~12.8.1",
-    "react-native-reanimated": "~3.6.2"
+    "react-native-reanimated": "~3.6.2",
+    "react-native-maps": "1.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
