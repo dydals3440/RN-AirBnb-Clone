@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, { memo } from 'react';
 import { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { defaultStyles } from '@/constants/Styles';
 import { ListingGeo } from '@/interfaces/listingGeo';
@@ -16,8 +16,8 @@ const INITIAL_REGION = {
   latitudeDelta: 9,
   longitudeDelta: 9,
 };
-
-const ListingsMap = ({ listings }: Props) => {
+// 카테고리를 누를때, Map이 너무 늦게 켜짐 매번 굳이 렌더링을 해야할까?
+const ListingsMap = memo(({ listings }: Props) => {
   const router = useRouter();
   const onMarkerSelected = (item: any) => {
     router.push(`/listing/${item.properties.id}`);
@@ -82,7 +82,7 @@ const ListingsMap = ({ listings }: Props) => {
       </MapView>
     </View>
   );
-};
+});
 
 export default ListingsMap;
 
