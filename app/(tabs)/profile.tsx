@@ -68,7 +68,7 @@ const Page = () => {
         <Ionicons name='notifications-outline' size={26} />
       </View>
 
-      {!user && (
+      {user && (
         <View style={styles.card}>
           <TouchableOpacity onPress={onCaptureImage}>
             <Image source={{ uri: user?.imageUrl }} style={styles.avatar} />
