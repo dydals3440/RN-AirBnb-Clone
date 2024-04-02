@@ -90,7 +90,14 @@ const Page = () => {
                         : styles.place
                     }
                   />
-                  <Text style={{ fontFamily: 'mon', paddingTop: 6 }}>
+                  <Text
+                    style={[
+                      { paddingTop: 6 },
+                      selectedPlace === index
+                        ? { fontFamily: 'mon-sb' }
+                        : { fontFamily: 'mon' },
+                    ]}
+                  >
                     {item.title}
                   </Text>
                 </TouchableOpacity>
@@ -243,7 +250,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignContent: 'center',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: 4,
   },
   inputField: {
     flex: 1,
